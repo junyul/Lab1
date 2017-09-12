@@ -1,25 +1,65 @@
 package pkgCore;
 
 import java.util.LinkedList;
-
-public class Round {
+public class Round extends Roll{
 
 	private int ComeOutScore;
 	private eGameResult eGameResult;
 	private LinkedList<Roll> rolls = new LinkedList<Roll>();
+	
 
 	public Round() {
-		// TODO: Execute Come Out roll, value ComeOutScore
-
-		// TODO: Create a loop that will execute a roll until point is made, or
-		// seven-out
-
-		// TODO: value the eGameResult after the round is complete
+		
+		Roll();
+		RollCount();
+		if(ComeOutScore==7 || ComeOutScore==11);
+		eGameResult=eGameResult.NATURAL;
+		
+		
+		if(ComeOutScore==2||ComeOutScore==3||ComeOutScore==12);
+		eGameResult=eGameResult.CRAPS;
+		
+		
+		if(ComeOutScore==4||ComeOutScore==5||ComeOutScore==6||ComeOutScore==8||ComeOutScore==9||ComeOutScore==10)
+			{
+		int firstscore = ComeOutScore;
+		Roll r =new Roll();
+			if(r.getScore() == firstscore)
+			{
+			eGameResult= eGameResult.POINT;
+		
+			}
+			if(r.getScore() == 7)
+			{
+			eGameResult=eGameResult.SEVEN_OUT;
+			}
+			}
+		
+		
 	}
 
+	private void Roll() {
+		
+		
+	}
+	int RC = 1;
 	public int RollCount() {
-		// Return the roll count
-		return 0;
+	
+		RC+=1;
+		return RC;
+	}
+
+	public LinkedList<Roll> getRolls() {
+		return rolls;
+	}
+
+	public void setRolls(LinkedList<Roll> rolls) {
+		this.rolls = rolls;
+	}
+
+	public static pkgCore.eGameResult ComeOutScore(int i) {
+		
+		return null;
 	}
 
 }
